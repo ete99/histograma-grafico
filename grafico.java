@@ -1,7 +1,11 @@
 //codigo ejemplo de: http://programacionjfreechart.blogspot.com/2011/05/ejemplo-practico-histograma-de-ingresos.html
+import java.io.File;
+import java.io.IOException;
+
 import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
+import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
@@ -24,18 +28,21 @@ public class grafico extends ApplicationFrame {
 	
 	public static JPanel crearPanel(double[] vector) {
 		JFreeChart chart = crearChart(crearDataset(vector));
+		try {
+	        ChartUtilities.saveChartAsPNG(new File("R37.PNG"), chart, 500, 500);
+	        } catch (IOException e) {}
 		return new ChartPanel(chart);
 	}
 	
 	private static IntervalXYDataset crearDataset(double[] vector) {
 		HistogramDataset dataset = new HistogramDataset();
-		dataset.addSeries("Frecuencias de claves", vector, 8);
+		dataset.addSeries("Frecuencias de claves", vector, 1000);
 		return dataset;
 	}
 	
 	private static JFreeChart crearChart(IntervalXYDataset dataset) {
 		JFreeChart chart = ChartFactory.createHistogram(
-		"Histograma",
+		null,
 		"frecuencias",
 		"valor de la clave",
 		dataset,
