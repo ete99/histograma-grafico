@@ -1,3 +1,4 @@
+//codigo ejemplo de: http://programacionjfreechart.blogspot.com/2011/05/ejemplo-practico-histograma-de-ingresos.html
 import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
