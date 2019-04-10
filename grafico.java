@@ -31,7 +31,7 @@ public class grafico extends ApplicationFrame {
 	public static JPanel crearPanel(double[] vector) {
 		JFreeChart chart = crearChart(crearDataset(vector));
 		try {
-	        ChartUtilities.saveChartAsPNG(new File("todosLosCaracteres-R"+R+".PNG"), chart, 1000, 1000);
+			ChartUtilities.saveChartAsPNG(new File("todosLosCaracteres-R"+R+".PNG"), chart, 1000, 1000);
 	        } catch (IOException e) {}
 		return new ChartPanel(chart);
 	}

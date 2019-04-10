@@ -5,7 +5,7 @@ import java.io.IOException;
 public class m {
 	public static void main(String[] args)  {
 		try {
-			//new grafico(hash(64), 64);
+			//new grafico(hash(31), 31);
 			new grafico(hashCada(64), 64);
 		} catch (IOException e) {
 			e.printStackTrace();
