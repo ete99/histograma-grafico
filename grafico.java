@@ -16,10 +16,12 @@ import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 
 public class grafico extends ApplicationFrame {
-	public grafico(double[] vector) {
+	static int R;
+	public grafico(double[] vector, int R) {
 		super("Frecuencias");
+		this.R = R;
 		JPanel chartPanel = crearPanel(vector);
-		chartPanel.setPreferredSize(new java.awt.Dimension(500, 475));
+		chartPanel.setPreferredSize(new java.awt.Dimension(1000, 1000));
 		setContentPane(chartPanel);
 		this.pack();
 		RefineryUtilities.centerFrameOnScreen(this);
@@ -29,7 +31,7 @@ public class grafico extends ApplicationFrame {
 	public static JPanel crearPanel(double[] vector) {
 		JFreeChart chart = crearChart(crearDataset(vector));
 		try {
-	        ChartUtilities.saveChartAsPNG(new File("R37.PNG"), chart, 500, 500);
+	        ChartUtilities.saveChartAsPNG(new File("todosLosCaracteres-R"+R+".PNG"), chart, 1000, 1000);
 	        } catch (IOException e) {}
 		return new ChartPanel(chart);
 	}
@@ -42,9 +44,9 @@ public class grafico extends ApplicationFrame {
 	
 	private static JFreeChart crearChart(IntervalXYDataset dataset) {
 		JFreeChart chart = ChartFactory.createHistogram(
-		null,
-		"frecuencias",
+		"R="+R,
 		"valor de la clave",
+		"frecuencias",
 		dataset,
 		PlotOrientation.VERTICAL,
 		true,
