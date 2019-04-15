@@ -38,7 +38,7 @@ public class grafico extends ApplicationFrame {
 	
 	private static IntervalXYDataset crearDataset(double[] vector) {
 		HistogramDataset dataset = new HistogramDataset();
-		dataset.addSeries("Frecuencias de claves", vector, 1000);
+		dataset.addSeries("Frecuencias de claves", vector, 10000);
 		return dataset;
 	}
 	
